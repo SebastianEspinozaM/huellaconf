@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HuellaConf 2026: congreso de medicina veterinaria de pequeños animales en Santiago de Chile.">
+  <title>HuellaConf 2026 · Congreso de Medicina Veterinaria</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 vía CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- CSS propio: SIEMPRE después de Bootstrap -->
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============ HEADER + NAV ============ -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand brand" href="#inicio">Huella<span>Conf</span></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
+            <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sponsors">Sponsors</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">FAQ</a></li>
+            <li class="nav-item"><a class="btn btn-brand ms-lg-2" href="#inscripcion">Inscríbete</a></li>
+            <li class="nav-item">
+              <button id="btnTema" class="btn btn-theme ms-lg-2" type="button" aria-pressed="false">🌙 Modo oscuro</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-7">
+            <p class="hero-eyebrow">14 y 15 de noviembre · Santiago, Chile</p>
+            <h1 id="hero-titulo" class="hero-title">El congreso donde la medicina veterinaria deja <em>huella</em>.</h1>
+            <p class="hero-lead">Dos días de charlas, talleres prácticos y networking para médicos veterinarios, técnicos y estudiantes de pequeños animales.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a class="btn btn-brand btn-lg" href="#inscripcion">Reservar mi cupo</a>
+              <a class="btn btn-outline-light btn-lg" href="#agenda">Ver agenda</a>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <aside class="countdown" aria-labelledby="countdown-titulo">
+              <h2 id="countdown-titulo" class="countdown-title">Faltan</h2>
+              <ul class="countdown-list" id="cuentaRegresiva" aria-live="polite">
+                <li><span id="cdDias">--</span> días</li>
+                <li><span id="cdHoras">--</span> horas</li>
+                <li><span id="cdMinutos">--</span> min</li>
+              </ul>
+              <p class="countdown-note">Cupos disponibles: <strong id="cuposRestantes">120</strong> de 300</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AGENDA ============ -->
+    <section id="agenda" class="section" aria-labelledby="agenda-titulo">
+      <div class="container">
+        <h2 id="agenda-titulo" class="section-title">Agenda</h2>
+        <p class="section-lead">Filtra por área para ver solo las charlas que te interesan.</p>
+
+        <div class="filtros" role="group" aria-label="Filtrar agenda por área">
+          <button type="button" class="btn btn-filter active" data-filtro="todas">Todas</button>
+          <button type="button" class="btn btn-filter" data-filtro="clinica">Clínica</button>
+          <button type="button" class="btn btn-filter" data-filtro="cirugia">Cirugía</button>
+          <button type="button" class="btn btn-filter" data-filtro="exoticos">Exóticos</button>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="agenda-day">Sábado 14</h3>
+            <ul class="list-group agenda-list">
+              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-14T09:00">09:00</time> Dermatología canina: casos que confunden <span class="badge badge-clinica">Clínica</span></li>
+              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-14T10:30">10:30</time> Cirugía mínimamente invasiva en felinos <span class="badge badge-cirugia">Cirugía</span></li>
+              <li class="list-group-item" data-area="exoticos"><time datetime="2026-11-14T12:00">12:00</time> Manejo de conejos y hurones en consulta <span class="badge badge-exoticos">Exóticos</span></li>
+              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-14T15:00">15:00</time> Nutrición en pacientes renales <span class="badge badge-clinica">Clínica</span></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h3 class="agenda-day">Domingo 15</h3>
+            <ul class="list-group agenda-list">
+              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-15T09:00">09:00</time> Taller: suturas y cierre de heridas <span class="badge badge-cirugia">Cirugía</span></li>
+              <li class="list-group-item" data-area="exoticos"><time datetime="2026-11-15T10:30">10:30</time> Reptiles: medicina preventiva <span class="badge badge-exoticos">Exóticos</span></li>
+              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-15T12:00">12:00</time> Urgencias: el paciente politraumatizado <span class="badge badge-clinica">Clínica</span></li>
+              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-15T15:00">15:00</time> Anestesia segura en geriatría <span class="badge badge-cirugia">Cirugía</span></li>
+            </ul>
+          </div>
+        </div>
+        <p id="agendaVacia" class="agenda-empty d-none">No hay charlas para ese filtro.</p>
+      </div>
+    </section>
+
+    <!-- ============ SPEAKERS ============ -->
+    <section id="speakers" class="section section-alt" aria-labelledby="speakers-titulo">
+      <div class="container">
+        <h2 id="speakers-titulo" class="section-title">Speakers</h2>
+        <p class="section-lead">Profesionales con experiencia clínica real en Chile y Latinoamérica.</p>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="card speaker-card h-100">
+              <img src="img/speaker-camila.webp" class="card-img-top" alt="Ilustración de la Dra. Camila Rojas, dermatóloga veterinaria" width="600" height="600">
+              <div class="card-body">
+                <h3 class="card-title">Dra. Camila Rojas</h3>
+                <p class="speaker-role">Dermatología · U. de Chile</p>
+                <p class="speaker-bio d-none">Especialista en dermatología de pequeños animales con 12 años de práctica en alergias y otitis crónicas.</p>
+                <button type="button" class="btn btn-link btn-bio p-0" aria-expanded="false">Ver bio</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="card speaker-card h-100">
+              <img src="img/speaker-matias.webp" class="card-img-top" alt="Ilustración del Dr. Matías Vergara, cirujano de tejidos blandos" width="600" height="600">
+              <div class="card-body">
+                <h3 class="card-title">Dr. Matías Vergara</h3>
+                <p class="speaker-role">Cirugía · Hospital Vet Sur</p>
+                <p class="speaker-bio d-none">Cirujano de tejidos blandos, pionero en laparoscopía felina en la zona sur del país.</p>
+                <button type="button" class="btn btn-link btn-bio p-0" aria-expanded="false">Ver bio</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="card speaker-card h-100">
+              <img src="img/speaker-javiera.webp" class="card-img-top" alt="Ilustración de la Dra. Javiera Paredes, especialista en animales exóticos" width="600" height="600">
+              <div class="card-body">
+                <h3 class="card-title">Dra. Javiera Paredes</h3>
+                <p class="speaker-role">Exóticos · Clínica Arca</p>
+                <p class="speaker-bio d-none">Atiende aves, reptiles y pequeños mamíferos; docente de medicina de exóticos.</p>
+                <button type="button" class="btn btn-link btn-bio p-0" aria-expanded="false">Ver bio</button>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="card speaker-card h-100">
+              <img src="img/speaker-tomas.webp" class="card-img-top" alt="Ilustración del Dr. Tomás Fuentes, anestesiólogo veterinario" width="600" height="600">
+              <div class="card-body">
+                <h3 class="card-title">Dr. Tomás Fuentes</h3>
+                <p class="speaker-role">Anestesia · UNAB</p>
+                <p class="speaker-bio d-none">Anestesiólogo enfocado en protocolos seguros para pacientes geriátricos y de alto riesgo.</p>
+                <button type="button" class="btn btn-link btn-bio p-0" aria-expanded="false">Ver bio</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPONSORS ============ -->
+    <section id="sponsors" class="section" aria-labelledby="sponsors-titulo">
+      <div class="container">
+        <h2 id="sponsors-titulo" class="section-title">Sponsors</h2>
+        <ul class="row g-3 list-unstyled sponsor-list">
+          <li class="col-6 col-md-3"><img src="img/sponsor-nutripet.webp" alt="Logo de NutriPet" class="img-fluid sponsor-logo" width="400" height="200"></li>
+          <li class="col-6 col-md-3"><img src="img/sponsor-vetlab.webp" alt="Logo de VetLab" class="img-fluid sponsor-logo" width="400" height="200"></li>
+          <li class="col-6 col-md-3"><img src="img/sponsor-patitas.webp" alt="Logo de Patitas+" class="img-fluid sponsor-logo" width="400" height="200"></li>
+          <li class="col-6 col-md-3"><img src="img/sponsor-bioanimal.webp" alt="Logo de BioAnimal" class="img-fluid sponsor-logo" width="400" height="200"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (Accordion) ============ -->
+    <section id="preguntas" class="section section-alt" aria-labelledby="faq-titulo">
+      <div class="container">
+        <h2 id="faq-titulo" class="section-title">Preguntas frecuentes</h2>
+        <div class="accordion faq" id="acordeonFaq">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">¿Entregan certificado?</button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#acordeonFaq">
+              <p class="accordion-body mb-0">Sí, se entrega certificado digital con las horas cronológicas de asistencia.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">¿Hay precio para estudiantes?</button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#acordeonFaq">
+              <p class="accordion-body mb-0">Sí, los estudiantes con credencial vigente pagan 50% del valor general.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">¿Dónde se realiza?</button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#acordeonFaq">
+              <p class="accordion-body mb-0">En el Centro de Eventos Huella, Av. Providencia 1234, Santiago (a pasos del metro).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSCRIPCIÓN ============ -->
+    <section id="inscripcion" class="section" aria-labelledby="inscripcion-titulo">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-7">
+            <h2 id="inscripcion-titulo" class="section-title">Inscripción</h2>
+            <p class="section-lead">Completa tus datos para reservar tu cupo.</p>
+
+            <form id="formInscripcion" class="form-card" novalidate>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required minlength="3" autocomplete="name">
+                <p class="invalid-feedback mb-0">Ingresa al menos 3 caracteres.</p>
+              </div>
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" required autocomplete="email">
+                <p class="invalid-feedback mb-0">Ingresa un correo válido.</p>
+              </div>
+              <div class="mb-3">
+                <label for="perfil" class="form-label">Perfil</label>
+                <select class="form-select" id="perfil" name="perfil" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Médico/a veterinario/a">Médico/a veterinario/a</option>
+                  <option value="Técnico/a veterinario/a">Técnico/a veterinario/a</option>
+                  <option value="Estudiante">Estudiante</option>
+                </select>
+                <p class="invalid-feedback mb-0">Selecciona tu perfil.</p>
+              </div>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terminos" name="terminos" required>
+                <label class="form-check-label" for="terminos">Acepto recibir información del congreso</label>
+                <p class="invalid-feedback mb-0">Debes aceptar para continuar.</p>
+              </div>
+              <button type="submit" class="btn btn-brand w-100 btn-lg">Confirmar inscripción</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-md-6">
+          <p class="brand mb-1">Huella<span>Conf</span> 2026</p>
+          <p class="mb-0">Proyecto académico · Diplomado Fullstack IPSS</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <address class="mb-0">contacto@huellaconf.cl · Santiago, Chile</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL de confirmación ============ -->
+  <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="modalTitulo">¡Inscripción confirmada! 🐾</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalMensaje" class="mb-0"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle vía CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- JS propio -->
+  <script src="js/main.js"></script>
+</body>
+</html>
