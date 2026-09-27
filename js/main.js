@@ -6,6 +6,7 @@ import { iniciarModoOscuro } from "./tema.js";
 import { iniciarFiltroAgenda } from "./agenda.js";
 import { iniciarFavoritos } from "./favoritos.js";
 import { iniciarBiosSpeakers } from "./speakers.js";
+import { iniciarPacientes } from "./pacientes.js";
 import { iniciarCarrusel } from "./carrusel.js";
 import { iniciarFormulario } from "./formulario.js";
 import { iniciarCuentaRegresiva } from "./cuenta-regresiva.js";
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   iniciarFavoritos();
   iniciarFiltroAgenda();
   iniciarBiosSpeakers();
+  iniciarPacientes();
   iniciarCarrusel("carruselTestimonios");
   iniciarFormulario();
   iniciarCuentaRegresiva();
