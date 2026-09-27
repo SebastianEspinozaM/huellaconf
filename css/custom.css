@@ -364,6 +364,72 @@ h1, h2, h3, .brand {
   font-weight: 700;
 }
 
+/* ---------- 7b. Pacientes: datos de la API (E2) ---------- */
+.pacientes-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pacientes-estado {
+  color: var(--hc-muted);
+  min-height: 1.5rem;
+}
+
+.pacientes-error {
+  color: #b42318;
+  font-weight: 700;
+}
+
+.btn-reintentar {
+  border: 2px solid currentColor;
+  color: inherit;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
+[data-theme="dark"] .pacientes-error {
+  color: #ff9c8a;
+}
+
+.paciente-card {
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+  border: none;
+  border-radius: var(--hc-radius);
+  box-shadow: var(--hc-shadow);
+  overflow: hidden;
+}
+
+.paciente-card .card-img-top {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  background-color: var(--hc-border);
+}
+
+.paciente-card .card-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.paciente-esqueleto {
+  aspect-ratio: 4 / 4;
+  border-radius: var(--hc-radius);
+  background: linear-gradient(90deg, var(--hc-border) 25%, var(--hc-surface) 50%, var(--hc-border) 75%);
+  background-size: 200% 100%;
+  animation: brillo 1.2s infinite linear;
+}
+
+@keyframes brillo {
+  to {
+    background-position: -200% 0;
+  }
+}
+
 /* ---------- 8. Sponsors ---------- */
 .sponsor-logo {
   border-radius: 0.75rem;
