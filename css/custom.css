@@ -390,6 +390,29 @@ h1, h2, h3, .brand {
   color: var(--hc-text);
 }
 
+/* Errores inline (E1): el espacio queda reservado para que el
+   formulario no "salte" cuando aparece un mensaje */
+.form-card .invalid-feedback {
+  display: block;
+  min-height: 1.3rem;
+}
+
+/* Resumen de errores y textos de ayuda (E1) */
+.form-resumen {
+  background-color: #fdecea;
+  color: #8a1c10;
+  border-left: 5px solid #d63a1f;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.form-opcional,
+.form-card .form-text {
+  color: var(--hc-muted);
+  font-weight: 400;
+}
+
 /* ---------- 11. Modal ---------- */
 .modal-content {
   border-radius: var(--hc-radius);
