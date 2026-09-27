@@ -267,6 +267,48 @@ h1, h2, h3, .brand {
   transition: opacity 0.3s ease;
 }
 
+.agenda-list .list-group-item {
+  position: relative;
+  padding-right: 3.5rem;
+}
+
+.agenda-list .es-favorita {
+  border-left-color: var(--hc-mustard);
+}
+
+.btn-fav {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--hc-mustard);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-fav:hover {
+  background-color: rgba(242, 177, 52, 0.15);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.btn-filter-fav {
+  border-color: var(--hc-mustard);
+  color: #8a5a00;
+}
+
+.btn-filter-fav.active,
+.btn-filter-fav:hover {
+  background-color: var(--hc-mustard);
+  border-color: var(--hc-mustard);
+  color: var(--hc-teal-dark);
+}
+
 .agenda-list time {
   display: block;
   font-weight: 700;
