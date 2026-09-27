@@ -5,6 +5,7 @@
 // para evitar XSS con datos externos.
 // =========================================================
 import { obtenerPacientes } from "./api.js";
+import { filtrarPorTexto, conectarBuscador } from "./filtro.js";
 
 const CANTIDAD = 8;
 
@@ -51,10 +52,12 @@ export function iniciarPacientes() {
   const lista = document.getElementById("listaPacientes");
   const estado = document.getElementById("pacientesEstado");
   const boton = document.getElementById("btnOtrosPacientes");
+  const buscador = document.getElementById("buscarRaza");
   if (!lista) return;
 
   let controlador = null;
   let pacientes = [];
+  let busqueda = "";
 
   const mostrarCargando = () => {
     lista.replaceChildren(...Array.from({ length: CANTIDAD }, crearEsqueleto));
@@ -77,8 +80,19 @@ export function iniciarPacientes() {
     estado.appendChild(reintentar);
   };
 
-  const renderizar = (lista_) => {
-    lista.replaceChildren(...lista_.map(crearTarjeta));
+  // Muestra solo los pacientes que coinciden con la búsqueda (E3)
+  const renderizar = () => {
+    const visibles = filtrarPorTexto(pacientes, busqueda, "raza");
+    lista.replaceChildren(...visibles.map(crearTarjeta));
+    estado.className = "pacientes-estado";
+
+    if (busqueda === "") {
+      estado.textContent = `${pacientes.length} pacientes cargados.`;
+    } else if (visibles.length === 0) {
+      estado.textContent = `Ninguna raza coincide con “${busqueda}”.`;
+    } else {
+      estado.textContent = `Mostrando ${visibles.length} de ${pacientes.length} pacientes.`;
+    }
   };
 
   async function cargar() {
@@ -96,8 +110,7 @@ export function iniciarPacientes() {
         lista.replaceChildren();
         estado.textContent = "No encontramos pacientes esta vez. Intenta de nuevo.";
       } else {
-        renderizar(pacientes);
-        estado.textContent = `${pacientes.length} pacientes cargados.`;
+        renderizar();
       }
     } catch (error) {
       if (miControlador !== controlador) return;
@@ -116,5 +129,9 @@ export function iniciarPacientes() {
   }
 
   boton.addEventListener("click", cargar);
+  conectarBuscador(buscador, (texto) => {
+    busqueda = texto.trim();
+    if (pacientes.length > 0) renderizar();
+  });
   cargar();
 }
