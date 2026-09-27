@@ -1,0 +1,460 @@
+/* =========================================================
+   HuellaConf 2026 · CSS propio (mobile first)
+   Se carga DESPUÉS de Bootstrap: solo refina, no reescribe.
+   ========================================================= */
+
+/* ---------- 1. Variables: paleta y tipografía propias ---------- */
+:root {
+  --hc-teal: #0f4c5c;
+  --hc-teal-dark: #0a3440;
+  --hc-coral: #e36414;
+  --hc-coral-dark: #b84f0f;
+  --hc-mustard: #f2b134;
+  --hc-sage: #5f8f78;
+  --hc-plum: #8a5578;
+  --hc-cream: #fbf8f3;
+  --hc-surface: #ffffff;
+  --hc-text: #1d2a2e;
+  --hc-muted: #5b6b70;
+  --hc-border: #e6dfd3;
+
+  --hc-font-title: "Fraunces", Georgia, serif;
+  --hc-font-body: "Nunito", system-ui, sans-serif;
+  --hc-radius: 1rem;
+  --hc-shadow: 0 10px 30px rgba(15, 76, 92, 0.12);
+
+  /* Sobrescribimos variables de Bootstrap con nuestra paleta */
+  --bs-body-font-family: var(--hc-font-body);
+  --bs-link-color: var(--hc-coral-dark);
+  --bs-link-hover-color: var(--hc-coral);
+}
+
+/* Modo oscuro (se activa desde js/main.js) */
+[data-theme="dark"] {
+  --hc-cream: #0f1c20;
+  --hc-surface: #16282d;
+  --hc-text: #eef3f1;
+  --hc-muted: #a9bcbf;
+  --hc-border: #24414a;
+  --bs-link-color: var(--hc-mustard);
+  --bs-link-hover-color: #ffd27a;
+}
+
+/* ---------- 2. Base (pensada para mobile) ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; /* compensa el header sticky */
+}
+
+body {
+  background-color: var(--hc-cream);
+  color: var(--hc-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, .brand {
+  font-family: var(--hc-font-title);
+  font-weight: 800;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-alt {
+  background-color: var(--hc-surface);
+}
+
+.section-title {
+  font-size: 1.9rem;
+  color: var(--hc-teal);
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .section-title {
+  color: var(--hc-mustard);
+}
+
+.section-lead {
+  color: var(--hc-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- 3. Header / Navbar ---------- */
+.site-header {
+  background-color: var(--hc-teal);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand {
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar .brand,
+.navbar .brand:hover {
+  color: #ffffff;
+}
+
+.brand span {
+  color: var(--hc-mustard);
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--hc-mustard);
+}
+
+.navbar-nav .btn {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+/* ---------- 4. Botones propios ---------- */
+.btn-brand {
+  background-color: var(--hc-coral);
+  border-color: var(--hc-coral);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--hc-coral-dark);
+  border-color: var(--hc-coral-dark);
+  color: #ffffff;
+}
+
+.btn-theme {
+  background-color: transparent;
+  border: 2px solid var(--hc-mustard);
+  color: var(--hc-mustard);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.btn-theme:hover {
+  background-color: var(--hc-mustard);
+  color: var(--hc-teal-dark);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  background: linear-gradient(rgba(10, 52, 64, 0.8), rgba(10, 52, 64, 0.8)),
+    url("../img/hero.webp") center / cover no-repeat;
+  color: #ffffff;
+  padding: 3.5rem 0;
+}
+
+.hero-eyebrow {
+  color: var(--hc-mustard);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+
+.hero-title em {
+  color: var(--hc-coral);
+  font-style: normal;
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.countdown {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--hc-radius);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.countdown-title {
+  font-size: 1.2rem;
+  color: var(--hc-mustard);
+}
+
+.countdown-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.countdown-list span {
+  display: block;
+  font-family: var(--hc-font-title);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.countdown-note {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- 6. Agenda (list-group + filtros) ---------- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-filter {
+  border: 2px solid var(--hc-teal);
+  color: var(--hc-teal);
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.3rem 1rem;
+}
+
+.btn-filter.active,
+.btn-filter:hover {
+  background-color: var(--hc-teal);
+  color: #ffffff;
+  border-color: var(--hc-teal);
+}
+
+[data-theme="dark"] .btn-filter {
+  border-color: var(--hc-mustard);
+  color: var(--hc-mustard);
+}
+
+[data-theme="dark"] .btn-filter.active {
+  background-color: var(--hc-mustard);
+  color: var(--hc-teal-dark);
+}
+
+.agenda-day {
+  font-size: 1.3rem;
+  color: var(--hc-coral);
+}
+
+.agenda-list .list-group-item {
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+  border-color: var(--hc-border);
+  border-left: 5px solid var(--hc-teal);
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.agenda-list time {
+  display: block;
+  font-weight: 700;
+  color: var(--hc-muted);
+}
+
+.badge-clinica { background-color: var(--hc-sage); }
+.badge-cirugia { background-color: var(--hc-coral-dark); }
+.badge-exoticos { background-color: var(--hc-plum); }
+
+.agenda-empty {
+  text-align: center;
+  color: var(--hc-muted);
+  margin-top: 1rem;
+}
+
+/* ---------- 7. Cards de speakers ---------- */
+.speaker-card {
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+  border: none;
+  border-radius: var(--hc-radius);
+  box-shadow: var(--hc-shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.speaker-card:hover {
+  transform: translateY(-6px);
+}
+
+.speaker-card .card-img-top {
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.speaker-card .card-title {
+  font-size: 1.2rem;
+}
+
+.speaker-role {
+  color: var(--hc-coral-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .speaker-role {
+  color: var(--hc-mustard);
+}
+
+.btn-bio {
+  font-weight: 700;
+}
+
+/* ---------- 8. Sponsors ---------- */
+.sponsor-logo {
+  border-radius: 0.75rem;
+  border: 1px solid var(--hc-border);
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.sponsor-logo:hover {
+  filter: grayscale(0%);
+}
+
+/* ---------- 9. Accordion (FAQ) ---------- */
+.faq .accordion-item {
+  background-color: var(--hc-surface);
+  border-color: var(--hc-border);
+}
+
+.faq .accordion-button {
+  font-weight: 700;
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+}
+
+.faq .accordion-button:not(.collapsed) {
+  background-color: var(--hc-teal);
+  color: #ffffff;
+}
+
+.faq .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(227, 100, 20, 0.3);
+}
+
+.faq .accordion-body {
+  color: var(--hc-text);
+}
+
+/* ---------- 10. Formulario ---------- */
+.form-card {
+  background-color: var(--hc-surface);
+  border-radius: var(--hc-radius);
+  box-shadow: var(--hc-shadow);
+  padding: 1.5rem;
+}
+
+.form-card .form-label,
+.form-card .form-check-label {
+  font-weight: 600;
+}
+
+.form-card .form-control,
+.form-card .form-select {
+  border-radius: 0.75rem;
+  border-color: var(--hc-border);
+}
+
+.form-card .form-control:focus,
+.form-card .form-select:focus {
+  border-color: var(--hc-coral);
+  box-shadow: 0 0 0 0.25rem rgba(227, 100, 20, 0.2);
+}
+
+[data-theme="dark"] .form-card .form-control,
+[data-theme="dark"] .form-card .form-select {
+  background-color: var(--hc-cream);
+  color: var(--hc-text);
+}
+
+/* ---------- 11. Modal ---------- */
+.modal-content {
+  border-radius: var(--hc-radius);
+  border: none;
+  background-color: var(--hc-surface);
+  color: var(--hc-text);
+}
+
+.modal-header {
+  background-color: var(--hc-teal);
+  color: #ffffff;
+  border-top-left-radius: var(--hc-radius);
+  border-top-right-radius: var(--hc-radius);
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* ---------- 12. Footer ---------- */
+.site-footer {
+  background-color: var(--hc-teal-dark);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.site-footer address {
+  font-style: normal;
+}
+
+/* =========================================================
+   DESKTOP (≥ 992px): solo escalamos lo que cambia
+   ========================================================= */
+@media (min-width: 992px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .section-title {
+    font-size: 2.6rem;
+  }
+
+  .navbar-nav .btn {
+    margin-top: 0;
+    width: auto;
+  }
+
+  .hero {
+    padding: 6rem 0;
+  }
+
+  .hero-title {
+    font-size: 3.6rem;
+  }
+
+  .hero-lead {
+    font-size: 1.25rem;
+  }
+
+  .form-card {
+    padding: 2.5rem;
+  }
+
+  .site-footer {
+    text-align: left;
+  }
+}
