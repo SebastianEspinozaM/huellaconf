@@ -1,4 +1,6 @@
-// Modo claro / oscuro
+// Modo claro / oscuro (persistente con storage.js)
+import { leer, guardar } from "./storage.js";
+
 export function iniciarModoOscuro() {
   const html = document.documentElement;
   const boton = document.getElementById("btnTema");
@@ -11,20 +13,13 @@ export function iniciarModoOscuro() {
     boton.setAttribute("aria-pressed", String(oscuro));
   };
 
-  try {
-    const guardado = localStorage.getItem("hc-tema");
-    if (guardado) aplicarTema(guardado);
-  } catch (error) {
-    // Sin localStorage: se usa el tema claro por defecto
-  }
+  // Respeta la preferencia guardada o, si no hay, la del sistema
+  const prefiereOscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  aplicarTema(leer("tema", prefiereOscuro ? "dark" : "light"));
 
   boton.addEventListener("click", () => {
     const nuevoTema = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
     aplicarTema(nuevoTema);
-    try {
-      localStorage.setItem("hc-tema", nuevoTema);
-    } catch (error) {
-      // Ignorar si no se puede guardar
-    }
+    guardar("tema", nuevoTema);
   });
 }

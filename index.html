@@ -79,36 +79,37 @@
     <section id="agenda" class="section" aria-labelledby="agenda-titulo">
       <div class="container">
         <h2 id="agenda-titulo" class="section-title">Agenda</h2>
-        <p class="section-lead">Filtra por área para ver solo las charlas que te interesan.</p>
+        <p class="section-lead">Filtra por área y marca con ☆ las charlas que quieres ver: quedan guardadas en <strong>Mi agenda</strong> aunque recargues la página.</p>
 
         <div class="filtros" role="group" aria-label="Filtrar agenda por área">
           <button type="button" class="btn btn-filter active" data-filtro="todas">Todas</button>
           <button type="button" class="btn btn-filter" data-filtro="clinica">Clínica</button>
           <button type="button" class="btn btn-filter" data-filtro="cirugia">Cirugía</button>
           <button type="button" class="btn btn-filter" data-filtro="exoticos">Exóticos</button>
+          <button type="button" class="btn btn-filter btn-filter-fav" data-filtro="favoritas">★ Mi agenda (<span id="contadorFavoritas">0</span>)</button>
         </div>
 
         <div class="row g-4">
           <div class="col-12 col-lg-6">
             <h3 class="agenda-day">Sábado 14</h3>
             <ul class="list-group agenda-list">
-              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-14T09:00">09:00</time> Dermatología canina: casos que confunden <span class="badge badge-clinica">Clínica</span></li>
-              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-14T10:30">10:30</time> Cirugía mínimamente invasiva en felinos <span class="badge badge-cirugia">Cirugía</span></li>
-              <li class="list-group-item" data-area="exoticos"><time datetime="2026-11-14T12:00">12:00</time> Manejo de conejos y hurones en consulta <span class="badge badge-exoticos">Exóticos</span></li>
-              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-14T15:00">15:00</time> Nutrición en pacientes renales <span class="badge badge-clinica">Clínica</span></li>
+              <li class="list-group-item" data-area="clinica" data-id="d14-0900"><time datetime="2026-11-14T09:00">09:00</time> Dermatología canina: casos que confunden <span class="badge badge-clinica">Clínica</span></li>
+              <li class="list-group-item" data-area="cirugia" data-id="d14-1030"><time datetime="2026-11-14T10:30">10:30</time> Cirugía mínimamente invasiva en felinos <span class="badge badge-cirugia">Cirugía</span></li>
+              <li class="list-group-item" data-area="exoticos" data-id="d14-1200"><time datetime="2026-11-14T12:00">12:00</time> Manejo de conejos y hurones en consulta <span class="badge badge-exoticos">Exóticos</span></li>
+              <li class="list-group-item" data-area="clinica" data-id="d14-1500"><time datetime="2026-11-14T15:00">15:00</time> Nutrición en pacientes renales <span class="badge badge-clinica">Clínica</span></li>
             </ul>
           </div>
           <div class="col-12 col-lg-6">
             <h3 class="agenda-day">Domingo 15</h3>
             <ul class="list-group agenda-list">
-              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-15T09:00">09:00</time> Taller: suturas y cierre de heridas <span class="badge badge-cirugia">Cirugía</span></li>
-              <li class="list-group-item" data-area="exoticos"><time datetime="2026-11-15T10:30">10:30</time> Reptiles: medicina preventiva <span class="badge badge-exoticos">Exóticos</span></li>
-              <li class="list-group-item" data-area="clinica"><time datetime="2026-11-15T12:00">12:00</time> Urgencias: el paciente politraumatizado <span class="badge badge-clinica">Clínica</span></li>
-              <li class="list-group-item" data-area="cirugia"><time datetime="2026-11-15T15:00">15:00</time> Anestesia segura en geriatría <span class="badge badge-cirugia">Cirugía</span></li>
+              <li class="list-group-item" data-area="cirugia" data-id="d15-0900"><time datetime="2026-11-15T09:00">09:00</time> Taller: suturas y cierre de heridas <span class="badge badge-cirugia">Cirugía</span></li>
+              <li class="list-group-item" data-area="exoticos" data-id="d15-1030"><time datetime="2026-11-15T10:30">10:30</time> Reptiles: medicina preventiva <span class="badge badge-exoticos">Exóticos</span></li>
+              <li class="list-group-item" data-area="clinica" data-id="d15-1200"><time datetime="2026-11-15T12:00">12:00</time> Urgencias: el paciente politraumatizado <span class="badge badge-clinica">Clínica</span></li>
+              <li class="list-group-item" data-area="cirugia" data-id="d15-1500"><time datetime="2026-11-15T15:00">15:00</time> Anestesia segura en geriatría <span class="badge badge-cirugia">Cirugía</span></li>
             </ul>
           </div>
         </div>
-        <p id="agendaVacia" class="agenda-empty d-none">No hay charlas para ese filtro.</p>
+        <p id="agendaVacia" class="agenda-empty d-none" role="status">No hay charlas para ese filtro.</p>
       </div>
     </section>
 
